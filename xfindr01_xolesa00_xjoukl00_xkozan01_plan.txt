@@ -1,0 +1,11 @@
+Terminy :
+
+Rozdelenie uloh :
+1. Frontend - 
+2. Matematicka kniznica (zakladne funkcie) - 
+3. Installer + matematicka kniznica (zlozitejsie funkcie) - 
+4. Dokumentacia a manual -
+
+Komunikacny kanal : Discord
+
+Verzovaci system : Git, Github
