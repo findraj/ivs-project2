@@ -1,0 +1,3 @@
+# ignore personal CMakeLists.txt and CMakeLists.txt.user created by QT
+CMakeLists.txt
+CMakeLists.txt.user
