@@ -20,14 +20,9 @@ private:
 
 private slots:
     void digit_pressed();
+    void operation_pressed();
     void on_ButtonDec_released();
     void on_ButtonNeg_released();
-    void on_ButtonAdd_released();
-    void on_ButtonSub_released();
-    void on_ButtonMul_released();
-    void on_ButtonDiv_released();
-    void on_ButtonLBra_released();
-    void on_ButtonRBra_released();
     void on_ButtonCE_released();
     void on_ButtonC_released();
     void on_ButtonEq_released();

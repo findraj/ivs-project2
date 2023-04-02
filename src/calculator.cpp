@@ -20,6 +20,11 @@ calculator::calculator(QWidget *parent)
     connect(ui->Button7,SIGNAL(released()),this,SLOT(digit_pressed()));
     connect(ui->Button8,SIGNAL(released()),this,SLOT(digit_pressed()));
     connect(ui->Button9,SIGNAL(released()),this,SLOT(digit_pressed()));
+
+    connect(ui->ButtonAdd,SIGNAL(released()),this,SLOT(operation_pressed()));
+    connect(ui->ButtonSub,SIGNAL(released()),this,SLOT(operation_pressed()));
+    connect(ui->ButtonMul,SIGNAL(released()),this,SLOT(operation_pressed()));
+    connect(ui->ButtonDiv,SIGNAL(released()),this,SLOT(operation_pressed()));
 }
 
 calculator::~calculator()
@@ -27,14 +32,23 @@ calculator::~calculator()
     delete ui;
 }
 
+double firstValue, secondValue;
+bool digitPressed = false;
+QString operation = "";
+
 // Handle the digits buttons.
 void calculator::digit_pressed(){
     QPushButton *button = (QPushButton*)sender();
     QString screenString;
 
-    screenString = ui->label->text() + button->text();
+    screenString = ui->label->text();
+    if (!digitPressed){
+        screenString = "";
+    }
+    screenString = screenString + button->text();
 
     ui->label->setText(screenString);
+    digitPressed = true;
 }
 
 // Handle the decimal button.
@@ -53,87 +67,100 @@ void calculator::on_ButtonNeg_released()
 {
     double screenNumValue;
     QString screenString;
+    int textLength = 0;
 
     screenString = ui->label->text();
+    if (screenString.contains(".")){
+        textLength = screenString.split(".").last().length();
+    }
+
     screenNumValue = (screenString.toDouble());
     screenNumValue = MATHLIB_H::Negation(screenNumValue);
-    screenString = QString::number(screenNumValue,'f',15);
+    screenString = QString::number(screenNumValue,'f',textLength);
 
     if (screenNumValue != 0){
         ui->label->setText(screenString);
     }
 }
 
-// Handle the plus button.
-void calculator::on_ButtonAdd_released()
+// Handle the operation buttons.
+void calculator::operation_pressed()
 {
     QString screenString;
-    QString plus;
-    screenString = ui->label->text();
-    plus = "+";
+    QPushButton *button = (QPushButton*)sender();
 
-    if (screenString[screenString.size()-1] != plus){
-        ui->label->setText(screenString + plus);
+    screenString = ui->label->text();
+
+    if (button->text() == "+"){
+        if (!digitPressed){
+            digitPressed = true;
+        }
+        else{
+            digitPressed = false;
+            operation = "+";
+            firstValue = screenString.toDouble();
+        }
+        screenString = "+";
     }
-}
-
-// Handle the minus button.
-void calculator::on_ButtonSub_released()
-{
-    QString screenString;
-    QString minus;
-    screenString = ui->label->text();
-    minus = "-";
-
-    if (screenString[screenString.size()-1] != minus){
-        ui->label->setText(screenString + minus);
+    else if (button->text() == "-"){
+        if (!digitPressed){
+            digitPressed = true;
+        }
+        else{
+            digitPressed = false;
+            operation = "-";
+            firstValue = screenString.toDouble();
+        }
+        screenString = "-";
     }
-}
-
-// Handle the mul button.
-void calculator::on_ButtonMul_released()
-{
-    QString screenString;
-    QString mul;
-    screenString = ui->label->text();
-    mul = "*";
-
-    if (screenString.size() != 0 && screenString[screenString.size()-1].isDigit() == 1){
-        ui->label->setText(screenString + mul);
+    else if (button->text() == "*"){
+        screenString = "*";
+        operation = "*";
+        digitPressed = false;
+        firstValue = screenString.toDouble();
     }
-}
-
-// Handle the div button.
-void calculator::on_ButtonDiv_released()
-{
-    QString screenString;
-    QString div;
-    screenString = ui->label->text();
-    div = "/";
-
-    if (screenString.size() != 0 && screenString[screenString.size()-1].isDigit() == 1){
-        ui->label->setText(screenString + div);
+    else if (button->text() == "/"){
+        screenString = "/";
+        operation = "/";
+        digitPressed = false;
+        firstValue = screenString.toDouble();
     }
+    else{
+        ;
+    }
+
+    ui->label->setText(screenString);
 }
 
-
-void calculator::on_ButtonLBra_released()
+// Handle the equals button.
+void calculator::on_ButtonEq_released()
 {
     QString screenString;
+    double result;
+
     screenString = ui->label->text();
+    secondValue = screenString.toDouble();
+    digitPressed = false;
 
-    ui->label->setText(screenString + "(");
+    if (operation == "+"){
+        result = MATHLIB_H::Addition(firstValue, secondValue);
+    }
+    else if (operation == "-"){
+        result = MATHLIB_H::Subtraction(firstValue, secondValue);
+    }
+    else if (operation == "*"){
+        result = MATHLIB_H::Multiplication(firstValue, secondValue);
+    }
+    else if (operation == "/"){
+        result = MATHLIB_H::Division(firstValue, secondValue);
+    }
+    else{
+        ;
+    }
+
+    screenString = QString::number(result,'g',15);
+    ui->label->setText(screenString);
 }
-
-
-void calculator::on_ButtonRBra_released()
-{
-    QString screenString;
-    screenString = ui->label->text();
-
-    ui->label->setText(screenString + ")");
-}
-
 
 void calculator::on_ButtonCE_released()
 {
@@ -149,118 +176,3 @@ void calculator::on_ButtonC_released()
 {
     ui->label->setText("");
 }
-
-
-// Function to find precedence of operators.
-int precedence(char op){
-    if(op == '+'||op == '-')
-    return 1;
-    if(op == '*'||op == '/')
-    return 2;
-    return 0;
-}
-
-// Function to perform arithmetic operations.
-double applyOp(double a, double b, char op){
-    switch(op){
-        case '+': return a + b;
-        case '-': return a - b;
-        case '*': return a * b;
-        case '/': return a / b;
-    }
-}
-
-// Function that returns value of expression after evaluation.
-double evaluate(std::string tokens){
-    std::stack <double> values;
-    std::stack <char> ops;
-
-    for(int i = 0; i < tokens.length(); i++){
-        if(tokens[i] == ' ') continue;
-
-        else if(tokens[i] == '('){
-            ops.push(tokens[i]);
-        }
-
-        else if(isdigit(tokens[i]) || tokens[i] == '.'){
-            std::string val = "";
-
-            while(i < tokens.length() && (isdigit(tokens[i]) || tokens[i] == '.'))
-            {
-                val = val + tokens[i];
-                i++;
-            }
-
-            double dval = atof(val.c_str());
-            values.push(dval);
-            i--;
-        }
-
-        else if(tokens[i] == ')')
-        {
-            while(!ops.empty() && ops.top() != '(')
-            {
-                double val2 = values.top();
-                values.pop();
-
-                double val1 = values.top();
-                values.pop();
-
-                char op = ops.top();
-                ops.pop();
-
-                values.push(applyOp(val1, val2, op));
-            }
-
-            if(!ops.empty())
-            ops.pop();
-        }
-
-        else
-        {
-            while(!ops.empty() && precedence(ops.top()) >= precedence(tokens[i])){
-                double val2 = values.top();
-                values.pop();
-
-                double val1 = values.top();
-                values.pop();
-
-                char op = ops.top();
-                ops.pop();
-
-                values.push(applyOp(val1, val2, op));
-            }
-
-            ops.push(tokens[i]);
-        }
-    }
-
-    while(!ops.empty()){
-        double val2 = values.top();
-        values.pop();
-
-        double val1 = values.top();
-        values.pop();
-
-        char op = ops.top();
-        ops.pop();
-
-        values.push(applyOp(val1, val2, op));
-    }
-
-    return values.top();
-}
-
-// Handle the equals button.
-void calculator::on_ButtonEq_released()
-{
-    QString screenString;
-    double value;
-
-    screenString = ui->label->text();
-    std::string std_screenString = screenString.toUtf8().constData();
-    value = evaluate(std_screenString);
-    screenString = QString::number(value,'g',15);
-    ui->label->setText(screenString);
-}
-

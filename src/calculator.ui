@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>262</width>
-    <height>258</height>
+    <width>212</width>
+    <height>291</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,8 +20,8 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="4" column="0">
-     <widget class="QPushButton" name="Button1">
+    <item row="1" column="0">
+     <widget class="QPushButton" name="ButtonCE">
       <property name="styleSheet">
        <string notr="true">QPushButton {
 	background-color: rgb(192, 191, 188);
@@ -38,14 +38,233 @@ QPushButton:pressed {
 }</string>
       </property>
       <property name="text">
-       <string>1</string>
+       <string>CE</string>
       </property>
       <property name="shortcut">
-       <string>1</string>
+       <string>Backspace</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QPushButton" name="ButtonSqrt">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgb(192, 191, 188);
+	border: 0px;
+	min-width: 2em;
+	padding: 5px;
+	border-radius: 10px;
+	
+	color: rgb(0, 0, 0);
+}
+
+QPushButton:pressed {
+	background-color: rgb(154, 153, 150);
+}</string>
+      </property>
+      <property name="text">
+       <string>sqrt</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QPushButton" name="ButtonPow">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgb(192, 191, 188);
+	border: 0px;
+	min-width: 2em;
+	padding: 5px;
+	border-radius: 10px;
+	
+	color: rgb(0, 0, 0);
+}
+
+QPushButton:pressed {
+	background-color: rgb(154, 153, 150);
+}</string>
+      </property>
+      <property name="text">
+       <string>^</string>
+      </property>
+      <property name="shortcut">
+       <string>^</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QPushButton" name="ButtonDiv">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgb(192, 191, 188);
+	border: 0px;
+	min-width: 2em;
+	padding: 5px;
+	border-radius: 10px;
+	
+	color: rgb(0, 0, 0);
+}
+
+QPushButton:pressed {
+	background-color: rgb(154, 153, 150);
+}</string>
+      </property>
+      <property name="text">
+       <string>/</string>
+      </property>
+      <property name="shortcut">
+       <string>/</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QPushButton" name="ButtonC">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgb(192, 191, 188);
+	border: 0px;
+	min-width: 2em;
+	padding: 5px;
+	border-radius: 10px;
+	
+	color: rgb(0, 0, 0);
+}
+
+QPushButton:pressed {
+	background-color: rgb(154, 153, 150);
+}</string>
+      </property>
+      <property name="text">
+       <string>C</string>
+      </property>
+      <property name="shortcut">
+       <string>Del</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QPushButton" name="ButtonFact">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgb(192, 191, 188);
+	border: 0px;
+	min-width: 2em;
+	padding: 5px;
+	border-radius: 10px;
+	
+	color: rgb(0, 0, 0);
+}
+
+QPushButton:pressed {
+	background-color: rgb(154, 153, 150);
+}</string>
+      </property>
+      <property name="text">
+       <string>!</string>
+      </property>
+      <property name="shortcut">
+       <string>!</string>
       </property>
      </widget>
     </item>
     <item row="2" column="2">
+     <widget class="QPushButton" name="ButtonRem">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgb(192, 191, 188);
+	border: 0px;
+	min-width: 2em;
+	padding: 5px;
+	border-radius: 10px;
+	
+	color: rgb(0, 0, 0);
+}
+
+QPushButton:pressed {
+	background-color: rgb(154, 153, 150);
+}</string>
+      </property>
+      <property name="text">
+       <string>%</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="3">
+     <widget class="QPushButton" name="ButtonMul">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgb(192, 191, 188);
+	border: 0px;
+	min-width: 2em;
+	padding: 5px;
+	border-radius: 10px;
+	
+	color: rgb(0, 0, 0);
+}
+
+QPushButton:pressed {
+	background-color: rgb(154, 153, 150);
+}</string>
+      </property>
+      <property name="text">
+       <string>*</string>
+      </property>
+      <property name="shortcut">
+       <string>*</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QPushButton" name="Button7">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgb(192, 191, 188);
+	border: 0px;
+	min-width: 2em;
+	padding: 5px;
+	border-radius: 10px;
+	
+	color: rgb(0, 0, 0);
+}
+
+QPushButton:pressed {
+	background-color: rgb(154, 153, 150);
+}</string>
+      </property>
+      <property name="text">
+       <string>7</string>
+      </property>
+      <property name="shortcut">
+       <string>7</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QPushButton" name="Button8">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgb(192, 191, 188);
+	border: 0px;
+	min-width: 2em;
+	padding: 5px;
+	border-radius: 10px;
+	
+	color: rgb(0, 0, 0);
+}
+
+QPushButton:pressed {
+	background-color: rgb(154, 153, 150);
+}</string>
+      </property>
+      <property name="text">
+       <string>8</string>
+      </property>
+      <property name="shortcut">
+       <string>8</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
      <widget class="QPushButton" name="Button9">
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -70,8 +289,8 @@ QPushButton:pressed {
       </property>
      </widget>
     </item>
-    <item row="6" column="0">
-     <widget class="QPushButton" name="ButtonNeg">
+    <item row="3" column="3">
+     <widget class="QPushButton" name="ButtonSub">
       <property name="styleSheet">
        <string notr="true">QPushButton {
 	background-color: rgb(192, 191, 188);
@@ -88,11 +307,14 @@ QPushButton:pressed {
 }</string>
       </property>
       <property name="text">
-       <string>+/-</string>
+       <string>-</string>
+      </property>
+      <property name="shortcut">
+       <string>-</string>
       </property>
      </widget>
     </item>
-    <item row="3" column="0">
+    <item row="4" column="0">
      <widget class="QPushButton" name="Button4">
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -117,8 +339,8 @@ QPushButton:pressed {
       </property>
      </widget>
     </item>
-    <item row="6" column="2">
-     <widget class="QPushButton" name="ButtonDec">
+    <item row="4" column="1">
+     <widget class="QPushButton" name="Button5">
       <property name="styleSheet">
        <string notr="true">QPushButton {
 	background-color: rgb(192, 191, 188);
@@ -135,15 +357,15 @@ QPushButton:pressed {
 }</string>
       </property>
       <property name="text">
-       <string>.</string>
+       <string>5</string>
       </property>
       <property name="shortcut">
-       <string>.</string>
+       <string>5</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
-     <widget class="QPushButton" name="Button7">
+    <item row="4" column="2">
+     <widget class="QPushButton" name="Button6">
       <property name="styleSheet">
        <string notr="true">QPushButton {
 	background-color: rgb(192, 191, 188);
@@ -160,10 +382,10 @@ QPushButton:pressed {
 }</string>
       </property>
       <property name="text">
-       <string>7</string>
+       <string>6</string>
       </property>
       <property name="shortcut">
-       <string>7</string>
+       <string>6</string>
       </property>
      </widget>
     </item>
@@ -192,8 +414,8 @@ QPushButton:pressed {
       </property>
      </widget>
     </item>
-    <item row="4" column="4">
-     <widget class="QPushButton" name="ButtonSub">
+    <item row="5" column="0">
+     <widget class="QPushButton" name="Button1">
       <property name="styleSheet">
        <string notr="true">QPushButton {
 	background-color: rgb(192, 191, 188);
@@ -210,15 +432,15 @@ QPushButton:pressed {
 }</string>
       </property>
       <property name="text">
-       <string>-</string>
+       <string>1</string>
       </property>
       <property name="shortcut">
-       <string>-</string>
+       <string>1</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="1">
-     <widget class="QPushButton" name="Button8">
+    <item row="5" column="1">
+     <widget class="QPushButton" name="Button2">
       <property name="styleSheet">
        <string notr="true">QPushButton {
 	background-color: rgb(192, 191, 188);
@@ -235,10 +457,57 @@ QPushButton:pressed {
 }</string>
       </property>
       <property name="text">
-       <string>8</string>
+       <string>2</string>
       </property>
       <property name="shortcut">
-       <string>8</string>
+       <string>2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QPushButton" name="Button3">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgb(192, 191, 188);
+	border: 0px;
+	min-width: 2em;
+	padding: 5px;
+	border-radius: 10px;
+	
+	color: rgb(0, 0, 0);
+}
+
+QPushButton:pressed {
+	background-color: rgb(154, 153, 150);
+}</string>
+      </property>
+      <property name="text">
+       <string>3</string>
+      </property>
+      <property name="shortcut">
+       <string>3</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QPushButton" name="ButtonNeg">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgb(192, 191, 188);
+	border: 0px;
+	min-width: 2em;
+	padding: 5px;
+	border-radius: 10px;
+	
+	color: rgb(0, 0, 0);
+}
+
+QPushButton:pressed {
+	background-color: rgb(154, 153, 150);
+}</string>
+      </property>
+      <property name="text">
+       <string>+/-</string>
       </property>
      </widget>
     </item>
@@ -267,8 +536,8 @@ QPushButton:pressed {
       </property>
      </widget>
     </item>
-    <item row="1" column="2">
-     <widget class="QPushButton" name="ButtonSqrt">
+    <item row="6" column="2">
+     <widget class="QPushButton" name="ButtonDec">
       <property name="styleSheet">
        <string notr="true">QPushButton {
 	background-color: rgb(192, 191, 188);
@@ -285,237 +554,21 @@ QPushButton:pressed {
 }</string>
       </property>
       <property name="text">
-       <string>sqrt</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="4">
-     <widget class="QPushButton" name="ButtonDiv">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-	background-color: rgb(192, 191, 188);
-	border: 0px;
-	min-width: 2em;
-	padding: 5px;
-	border-radius: 10px;
-	
-	color: rgb(0, 0, 0);
-}
-
-QPushButton:pressed {
-	background-color: rgb(154, 153, 150);
-}</string>
-      </property>
-      <property name="text">
-       <string>/</string>
+       <string>.</string>
       </property>
       <property name="shortcut">
-       <string>/</string>
+       <string>.</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="3">
-     <widget class="QPushButton" name="ButtonLBra">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-	background-color: rgb(192, 191, 188);
-	border: 0px;
-	min-width: 2em;
-	padding: 5px;
-	border-radius: 10px;
-	
-	color: rgb(0, 0, 0);
-}
-
-QPushButton:pressed {
-	background-color: rgb(154, 153, 150);
-}</string>
-      </property>
-      <property name="text">
-       <string>(</string>
-      </property>
-      <property name="shortcut">
-       <string>(</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="4">
-     <widget class="QPushButton" name="ButtonRBra">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-	background-color: rgb(192, 191, 188);
-	border: 0px;
-	min-width: 2em;
-	padding: 5px;
-	border-radius: 10px;
-	
-	color: rgb(0, 0, 0);
-}
-
-QPushButton:pressed {
-	background-color: rgb(154, 153, 150);
-}</string>
-      </property>
-      <property name="text">
-       <string>)</string>
-      </property>
-      <property name="shortcut">
-       <string>)</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="2">
-     <widget class="QPushButton" name="Button3">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-	background-color: rgb(192, 191, 188);
-	border: 0px;
-	min-width: 2em;
-	padding: 5px;
-	border-radius: 10px;
-	
-	color: rgb(0, 0, 0);
-}
-
-QPushButton:pressed {
-	background-color: rgb(154, 153, 150);
-}</string>
-      </property>
-      <property name="text">
-       <string>3</string>
-      </property>
-      <property name="shortcut">
-       <string>3</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="2">
-     <widget class="QPushButton" name="Button6">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-	background-color: rgb(192, 191, 188);
-	border: 0px;
-	min-width: 2em;
-	padding: 5px;
-	border-radius: 10px;
-	
-	color: rgb(0, 0, 0);
-}
-
-QPushButton:pressed {
-	background-color: rgb(154, 153, 150);
-}</string>
-      </property>
-      <property name="text">
-       <string>6</string>
-      </property>
-      <property name="shortcut">
-       <string>6</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="4">
-     <widget class="QPushButton" name="ButtonCE">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-	background-color: rgb(192, 191, 188);
-	border: 0px;
-	min-width: 2em;
-	padding: 5px;
-	border-radius: 10px;
-	
-	color: rgb(0, 0, 0);
-}
-
-QPushButton:pressed {
-	background-color: rgb(154, 153, 150);
-}</string>
-      </property>
-      <property name="text">
-       <string>CE</string>
-      </property>
-      <property name="shortcut">
-       <string>Backspace</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="3">
-     <widget class="QPushButton" name="ButtonMul">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-	background-color: rgb(192, 191, 188);
-	border: 0px;
-	min-width: 2em;
-	padding: 5px;
-	border-radius: 10px;
-	
-	color: rgb(0, 0, 0);
-}
-
-QPushButton:pressed {
-	background-color: rgb(154, 153, 150);
-}</string>
-      </property>
-      <property name="text">
-       <string>*</string>
-      </property>
-      <property name="shortcut">
-       <string>*</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="3">
-     <widget class="QPushButton" name="ButtonC">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-	background-color: rgb(192, 191, 188);
-	border: 0px;
-	min-width: 2em;
-	padding: 5px;
-	border-radius: 10px;
-	
-	color: rgb(0, 0, 0);
-}
-
-QPushButton:pressed {
-	background-color: rgb(154, 153, 150);
-}</string>
-      </property>
-      <property name="text">
-       <string>C</string>
-      </property>
-      <property name="shortcut">
-       <string>Del</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QPushButton" name="Button5">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-	background-color: rgb(192, 191, 188);
-	border: 0px;
-	min-width: 2em;
-	padding: 5px;
-	border-radius: 10px;
-	
-	color: rgb(0, 0, 0);
-}
-
-QPushButton:pressed {
-	background-color: rgb(154, 153, 150);
-}</string>
-      </property>
-      <property name="text">
-       <string>5</string>
-      </property>
-      <property name="shortcut">
-       <string>5</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="4">
+    <item row="5" column="3" rowspan="2">
      <widget class="QPushButton" name="ButtonEq">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
 	background-color: rgb(255, 163, 72);
@@ -539,7 +592,7 @@ QPushButton:pressed {
       </property>
      </widget>
     </item>
-    <item row="0" column="0" colspan="5">
+    <item row="0" column="0" colspan="4">
      <widget class="QLabel" name="label">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -563,103 +616,6 @@ QPushButton:pressed {
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QPushButton" name="ButtonPow">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-	background-color: rgb(192, 191, 188);
-	border: 0px;
-	min-width: 2em;
-	padding: 5px;
-	border-radius: 10px;
-	
-	color: rgb(0, 0, 0);
-}
-
-QPushButton:pressed {
-	background-color: rgb(154, 153, 150);
-}</string>
-      </property>
-      <property name="text">
-       <string>^</string>
-      </property>
-      <property name="shortcut">
-       <string>^</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QPushButton" name="ButtonFact">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-	background-color: rgb(192, 191, 188);
-	border: 0px;
-	min-width: 2em;
-	padding: 5px;
-	border-radius: 10px;
-	
-	color: rgb(0, 0, 0);
-}
-
-QPushButton:pressed {
-	background-color: rgb(154, 153, 150);
-}</string>
-      </property>
-      <property name="text">
-       <string>!</string>
-      </property>
-      <property name="shortcut">
-       <string>!</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <widget class="QPushButton" name="Button2">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-	background-color: rgb(192, 191, 188);
-	border: 0px;
-	min-width: 2em;
-	padding: 5px;
-	border-radius: 10px;
-	
-	color: rgb(0, 0, 0);
-}
-
-QPushButton:pressed {
-	background-color: rgb(154, 153, 150);
-}</string>
-      </property>
-      <property name="text">
-       <string>2</string>
-      </property>
-      <property name="shortcut">
-       <string>2</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="3">
-     <widget class="QPushButton" name="ButtonRem">
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-	background-color: rgb(192, 191, 188);
-	border: 0px;
-	min-width: 2em;
-	padding: 5px;
-	border-radius: 10px;
-	
-	color: rgb(0, 0, 0);
-}
-
-QPushButton:pressed {
-	background-color: rgb(154, 153, 150);
-}</string>
-      </property>
-      <property name="text">
-       <string>%</string>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -667,7 +623,7 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>262</width>
+     <width>212</width>
      <height>22</height>
     </rect>
    </property>
