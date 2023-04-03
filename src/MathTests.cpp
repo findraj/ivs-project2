@@ -33,8 +33,11 @@ TEST(MathLibTests, Multiplication)
 
 TEST(MathLibTests, Division)
 {
+    // Division with 0
     EXPECT_THROW(Division(1, 0), std::overflow_error);
     EXPECT_THROW(Division(0, 0), std::overflow_error);
+
+    // Ordinary values
     EXPECT_EQ(Division(0, 1), 0);
     EXPECT_EQ(Division(2, 1), 2);
     EXPECT_EQ(Division(10, 2), 5);
@@ -71,6 +74,27 @@ TEST(MathLibTests, Factorial)
     EXPECT_EQ(Factorial(3), 6);
     EXPECT_EQ(Factorial(4), 24);
     EXPECT_EQ(Factorial(5), 120);
+}
+
+TEST(MathLibTests, Nthroot)
+{
+    // Root of 0 degree
+    EXPECT_THROW(Nthroot(2.0, 0.0), std::overflow_error);
+    EXPECT_THROW(Nthroot(-2.0, 0.0), std::overflow_error);
+
+    // Radicand less than 0
+    EXPECT_THROW(Nthroot(-8, 3), std::overflow_error);
+    EXPECT_THROW(Nthroot(-27, 3), std::overflow_error);
+
+    // Ordinary values
+    EXPECT_EQ(Nthroot(8, 3), 2);
+    EXPECT_EQ(Nthroot(27, 3), 3);
+    EXPECT_EQ(Nthroot(16, 4), 2);
+
+    // Decimal results
+    EXPECT_NEAR(Nthroot(9, 3), 2.0800, 0.0001);
+    EXPECT_NEAR(Nthroot(15, 4), 1.9679, 0.0001);
+    EXPECT_NEAR(Nthroot(8, 2), 2.8284, 0.0001);
 }
 
 int main(int argc, char **argv)
