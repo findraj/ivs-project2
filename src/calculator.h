@@ -26,5 +26,7 @@ private slots:
     void on_ButtonCE_released();
     void on_ButtonC_released();
     void on_ButtonEq_released();
+    void on_ButtonFact_released();
+    void on_ButtonPer_released();
 };
 #endif // CALCULATOR_H
