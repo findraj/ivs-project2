@@ -15,3 +15,5 @@ double Power(double base, double exponent);
 double Factorial(double factorial);
 
 double Nthroot(double radicand, double degree);
+
+double Percentile(double number);

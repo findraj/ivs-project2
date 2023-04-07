@@ -81,3 +81,10 @@ double Nthroot(double radicand, double degree)
 
     return result;
 }
+
+double Percentile(double number)
+{
+    double result = number / 100.0;
+
+    return result;
+}
