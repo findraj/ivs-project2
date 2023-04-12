@@ -1,3 +1,5 @@
-# ignore personal CMakeLists.txt and CMakeLists.txt.user created by QT
-CMakeLists.txt
+# ignore personal CMakeLists.txt.user created by QT
 CMakeLists.txt.user
+
+#ignore folder build, with build files
+build/
