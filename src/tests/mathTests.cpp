@@ -1,4 +1,4 @@
-#include "mathLib.h"
+#include "../mathLib.h"
 #include "gtest/gtest.h"
 
 TEST(Addition, Integers)

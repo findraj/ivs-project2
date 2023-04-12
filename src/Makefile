@@ -4,6 +4,9 @@ TARGET = xfindr01_xjoukl00_xkozan01_xolesa00
 
 all: build/src
 
+test:
+	cd tests && make && ./MathTests
+
 build:
 	mkdir -p build
 
@@ -12,6 +15,7 @@ build/src: | build
 
 clean:
 	rm -rf build $(TARGET)
+	cd tests && make clean
 
 pack: $(TARGET)
 
