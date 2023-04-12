@@ -5,7 +5,7 @@ TARGET = xfindr01_xjoukl00_xkozan01_xolesa00
 all: build/src
 
 test:
-	cd tests && make && ./MathTests
+	cd tests && make && ./mathTests.out
 
 build:
 	mkdir -p build
