@@ -5,7 +5,7 @@ TARGET = xfindr01_xjoukl00_xkozan01_xolesa00
 all: build/src
 
 test:
-	cd tests && make && ./mathTests.out
+	cd tests && make -s && ./mathTests.out
 
 build:
 	mkdir -p build
@@ -14,15 +14,15 @@ build/src: | build
 	cd build && cmake .. && make -s
 
 clean:
-	rm -rf build $(TARGET)
-	cd tests && make clean
+	rm -rf build
+	cd tests && make -s clean
 
-pack: $(TARGET)
+pack: clean $(TARGET) 
 
-$(TARGET): all
+$(TARGET):
 	@cd .. && cd .. && mkdir -p $(TARGET) > /dev/null
 	@cd .. && cd ../$(TARGET) && mkdir -p doc install repo > /dev/null
-	@cd .. && cd .. && cp -r ivs-project2 ./$(TARGET)/repo/ivs-project2 > /dev/null
+	@cd .. && cd .. && cp -r ivs-project2 ./$(TARGET)/repo > /dev/null
 
 	@cd .. && cd .. && zip -r $(TARGET).zip $(TARGET) > /dev/null
 	@cd .. && cd .. && rm -rf $(TARGET) > /dev/null
