@@ -1,9 +1,26 @@
+/******************************************************
+ * Project name: VUT FIT IVS Project 2 - Calculator
+ * File: calculator.cpp
+ * Date: 14.4.2023
+ * Authors: Marek Joukl (xjoukl00)
+ *          Marko Olesak (xolesa00)
+ *          Ondrej Kozanyi (xkozan01)
+ *          Jan Findra (xfindr01)
+******************************************************/
+/**
+ * @file calculator.cpp
+ * @brief File that handles GUI for the calculator
+ */
 #include "calculator.h"
 #include "./ui_calculator.h"
 #include "mathLib.h"
 #include <QDebug>
 #include <stack>
-
+/**
+ * @brief Construct a new calculator::calculator object
+ * 
+ * @param parent 
+ */
 calculator::calculator(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::calculator)
@@ -28,7 +45,10 @@ calculator::calculator(QWidget *parent)
     connect(ui->ButtonPow,SIGNAL(released()),this,SLOT(operation_pressed()));
     connect(ui->ButtonSqrt,SIGNAL(released()),this,SLOT(operation_pressed()));
 }
-
+/**
+ * @brief Destroy the calculator::calculator object
+ * 
+ */
 calculator::~calculator()
 {
     delete ui;
@@ -38,7 +58,9 @@ double firstValue, secondValue;
 bool digitMode = false;
 QString operation = "";
 
-// Handle the digits buttons.
+/**
+ * @brief closes window of calculator
+ */
 void calculator::digit_pressed(){
     QPushButton *button = (QPushButton*)sender();
     QString screenString;
@@ -53,7 +75,9 @@ void calculator::digit_pressed(){
     digitMode = true;
 }
 
-// Handle the decimal button.
+/**
+ * @brief Handle the decimal button.
+ */
 void calculator::on_ButtonDec_released()
 {
     QString screenString;
@@ -64,7 +88,9 @@ void calculator::on_ButtonDec_released()
     ui->label->setText(screenString);
 }
 
-// Handle the plus-minus button.
+/**
+ * @brief Handle the plus-minus button.
+ */
 void calculator::on_ButtonNeg_released()
 {
     double screenNumValue;
@@ -81,7 +107,9 @@ void calculator::on_ButtonNeg_released()
     }
 }
 
-// Handle the operation buttons.
+/**
+ * @brief Handle the operation buttons.
+ */
 void calculator::operation_pressed()
 {
     QString screenString;
@@ -134,7 +162,9 @@ void calculator::operation_pressed()
     }
 }
 
-// Handle the equals button.
+/**
+ * @brief Handle the equals button.
+ */
 void calculator::on_ButtonEq_released()
 {
     if (digitMode){
@@ -177,6 +207,9 @@ void calculator::on_ButtonEq_released()
         ui->label->setText(screenString);
     }
 }
+/**
+ * @brief Handles the CE button
+ */
 
 void calculator::on_ButtonCE_released()
 {
@@ -187,12 +220,17 @@ void calculator::on_ButtonCE_released()
     ui->label->setText(screenString);
 }
 
+/**
+ * @brief Handles the C button
+ */
 
 void calculator::on_ButtonC_released()
 {
     ui->label->setText("");
 }
-
+/**
+ * @brief Handles the factorial button
+ */
 void calculator::on_ButtonFact_released()
 {
     QString screenString;
@@ -202,7 +240,9 @@ void calculator::on_ButtonFact_released()
     screenString = QString::number(value,'g',15);
     ui->label->setText(screenString);
 }
-
+/**
+ * @brief Handles the percentile button
+ */
 void calculator::on_ButtonPer_released()
 {
     QString screenString;
@@ -212,4 +252,4 @@ void calculator::on_ButtonPer_released()
     screenString = QString::number(value,'g',15);
     ui->label->setText(screenString);
 }
-
+/************** END OF calculator.cpp **************/

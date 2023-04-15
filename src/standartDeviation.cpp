@@ -1,3 +1,17 @@
+/******************************************************
+ * Project name: VUT FIT IVS Project 2 - Calculator
+ * File: standartDeviation.cpp
+ * Date: 14.4.2023
+ * Authors: Marek Joukl (xjoukl00)
+ *          Marko Olesak (xolesa00)
+ *          Ondrej Kozanyi (xkozan01)
+ *          Jan Findra (xfindr01)
+******************************************************/
+/**
+ * @file standartDeviation.cpp
+ * 
+ * @brief File that calculates standart deviation
+ */
 #include <vector>
 #include <stdexcept>
 #include <cstdio>
@@ -6,6 +20,7 @@
 // result = sqrt[ Σ(xᵢ - x̄)² / (n - 1) ]
 
 // x̄
+
 double Mean(const std::vector<double> &values)
 {
     double sum = 0.0;
@@ -65,3 +80,4 @@ int main()
 
     return 0;
 }
+/************** END OF standartDeviation.cpp **************/

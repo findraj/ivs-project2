@@ -1,3 +1,17 @@
+/******************************************************
+ * Project name: VUT FIT IVS Project 2 - Calculator
+ * File: mathLib.cpp
+ * Date: 14.4.2023
+ * Authors: Marek Joukl (xjoukl00)
+ *          Marko Olesak (xolesa00)
+ *          Ondrej Kozanyi (xkozan01)
+ *          Jan Findra (xfindr01)
+******************************************************/
+/**
+ * @file mathLib.cpp
+ * 
+ * @brief File that handles math library
+ */
 #include <stdexcept>
 #include <cmath>
 
@@ -88,3 +102,4 @@ double Percentile(double number)
 
     return result;
 }
+/************** END OF mathLib.cpp **************/

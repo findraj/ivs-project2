@@ -1,3 +1,16 @@
+/******************************************************
+ * Project name: VUT FIT IVS Project 2 - Calculator
+ * File: calculator.h
+ * Date: 14.4.2023
+ * Authors: Marek Joukl (xjoukl00)
+ *          Marko Olesak (xolesa00)
+ *          Ondrej Kozanyi (xkozan01)
+ *          Jan Findra (xfindr01)
+******************************************************/
+/**
+ * @file calculator.h
+ * @brief File that contains function and class declaration for calculator.cpp
+ */
 #ifndef CALCULATOR_H
 #define CALCULATOR_H
 
@@ -30,3 +43,4 @@ private slots:
     void on_ButtonPer_released();
 };
 #endif // CALCULATOR_H
+/************** END OF calculator.h **************/
