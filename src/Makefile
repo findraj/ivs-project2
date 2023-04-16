@@ -4,9 +4,12 @@ TARGET = xfindr01_xjoukl00_xkozan01_xolesa00
 
 all: build/src
 
+profile:
+	g++ -g standartDeviation.cpp -o standartDeviation.o
+
 test:
 	cd tests && make -s && ./mathTests.out
-
+	
 build:
 	mkdir -p build
 
@@ -14,7 +17,7 @@ build/src: | build
 	cd build && cmake .. && make -s
 
 clean:
-	rm -rf build
+	rm -rf build && rm standartDeviation.o
 	cd tests && make -s clean
 
 pack: clean $(TARGET) 
@@ -30,4 +33,3 @@ $(TARGET):
 
 run: all
 	./build/src
-

@@ -6,10 +6,10 @@
  *          Marko Olesak (xolesa00)
  *          Ondrej Kozanyi (xkozan01)
  *          Jan Findra (xfindr01)
-******************************************************/
+ ******************************************************/
 /**
  * @file standartDeviation.cpp
- * 
+ *
  * @brief File that calculates standart deviation
  */
 #include <vector>
@@ -76,7 +76,7 @@ int main()
     }
 
     double sd = StandardDeviation(values);
-    printf("Standard deviation: %lf\n", sd);
+    printf("%lf\n", sd);
 
     return 0;
 }
