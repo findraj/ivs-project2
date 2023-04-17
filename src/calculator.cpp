@@ -14,8 +14,7 @@
 #include "calculator.h"
 #include "./ui_calculator.h"
 #include "mathLib.h"
-#include <QDebug>
-#include <stack>
+
 /**
  * @brief Construct a new calculator::calculator object
  * 
@@ -83,9 +82,10 @@ void calculator::on_ButtonDec_released()
     QString screenString;
     screenString = ui->label->text();
 
-    screenString = screenString + ".";
-
-    ui->label->setText(screenString);
+    if (!screenString.contains(".")){
+        screenString = screenString + ".";
+        ui->label->setText(screenString);
+    }
 }
 
 /**
@@ -192,7 +192,7 @@ void calculator::on_ButtonEq_released()
             result = Power(firstValue, secondValue);
         }
         else if (operation == "√"){
-            result = Nthroot(secondValue, firstValue);
+            result = Nthroot(firstValue, secondValue);
         }
         else if (operation == ""){
             result = secondValue;
@@ -216,8 +216,16 @@ void calculator::on_ButtonCE_released()
     QString screenString;
     screenString = ui->label->text();
 
-    screenString.chop(1);
-    ui->label->setText(screenString);
+    if (digitMode){
+        screenString.chop(1);
+        ui->label->setText(screenString);
+    }
+    else{
+        QString lastValue = QString::number(firstValue,'g',15);
+        ui->label->setText(lastValue);
+        digitMode = true;
+        operation = "";
+    }
 }
 
 /**
@@ -252,4 +260,33 @@ void calculator::on_ButtonPer_released()
     screenString = QString::number(value,'g',15);
     ui->label->setText(screenString);
 }
+
+void calculator::on_actionHelp_list_triggered()
+{
+    QMessageBox::information(this,"Help list", "Welcome to the help list.\n"
+                                                "We hope you can find here help for your questions about the usage of this app.\n"
+                                                "\n"
+                                                "Numbers and operations are added one by one, no mathematical priorites are used in the evaluation, that means, the operations are evaluated in the order they are called.\n"
+                                                "\n"
+                                                "There are two types of operations: unary and binary.\n"
+                                                "\n"
+                                                "Unary operations takes one argument, so they directly change the value of the number on the screen.\n"
+                                                "\n"
+                                                "Unary operations:\n"
+                                                "%\tdivides the current value by 100\n"
+                                                "!\tfactorial\n"
+                                                "±\tnegates the current value\n"
+                                                "\n"
+                                                "Binary operations takes two arguments separated by operation character.\n"
+                                                "The expression is evaluated after pressing the button = or by adding another operation.\n"
+                                                "\n"
+                                                "Binary operations:\n"
+                                                "+\taddition\n"
+                                                "-\tsubstitution\n"
+                                                "*\tmultiplication\n"
+                                                "/\tdivision\n"
+                                                "^\tpower (x on the power of y is called x ^ y)\n"
+                                                "√\tnth root (xth root of y is called y √ x)");
+}
+
 /************** END OF calculator.cpp **************/

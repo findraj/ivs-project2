@@ -15,6 +15,10 @@
 #define CALCULATOR_H
 
 #include <QMainWindow>
+#include <QMessageBox>
+#include <QMenu>
+#include <QAction>
+#include <QMenuBar>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class calculator; }
@@ -41,6 +45,7 @@ private slots:
     void on_ButtonEq_released();
     void on_ButtonFact_released();
     void on_ButtonPer_released();
+    void on_actionHelp_list_triggered();
 };
 #endif // CALCULATOR_H
 /************** END OF calculator.h **************/
