@@ -22,6 +22,9 @@ clean:
 
 pack: clean $(TARGET) 
 
+docs: 
+	doxygen
+
 $(TARGET):
 	@cd .. && cd .. && mkdir -p $(TARGET) > /dev/null
 	@cd .. && cd ../$(TARGET) && mkdir -p doc install repo > /dev/null
