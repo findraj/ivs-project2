@@ -241,24 +241,28 @@ void calculator::on_ButtonC_released()
  */
 void calculator::on_ButtonFact_released()
 {
-    QString screenString;
-    screenString = ui->label->text();
+    if (digitMode){
+        QString screenString;
+        screenString = ui->label->text();
 
-    double value = Factorial(screenString.toDouble());
-    screenString = QString::number(value,'g',15);
-    ui->label->setText(screenString);
+        double value = Factorial(screenString.toDouble());
+        screenString = QString::number(value,'g',15);
+        ui->label->setText(screenString);
+    }
 }
 /**
  * @brief Handles the percentile button
  */
 void calculator::on_ButtonPer_released()
 {
-    QString screenString;
-    screenString = ui->label->text();
+    if (digitMode){
+        QString screenString;
+        screenString = ui->label->text();
 
-    double value = Percentile(screenString.toDouble());
-    screenString = QString::number(value,'g',15);
-    ui->label->setText(screenString);
+        double value = Percentile(screenString.toDouble());
+        screenString = QString::number(value,'g',15);
+        ui->label->setText(screenString);
+    }
 }
 
 void calculator::on_actionHelp_list_triggered()
