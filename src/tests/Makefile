@@ -1,39 +1,34 @@
-# Google Tests
+# Google Tests makefile
+
+TARGET = mathTests.out
 
 # Compiler settings
-CXX=g++
-CXXFLAGS=-std=c++14 -Wall -Wextra
+CXX = g++
+CXXFLAGS = -std=c++14 -Wall -Wextra
 
 # Directories
-GTEST_DIR=./googletest
-TEST_DIR=.
-
-# Source file
-TEST_SRCS=$(TEST_DIR)/mathTests.cpp
+GTEST_DIR = ./googletest
 
 # Object file
-TEST_OBJS=$(TEST_DIR)/mathTests.o
-
-# Executable name
-TEST_EXECUTABLE=mathTests.out
+OBJS = $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 
 # Include directories
-INC=-I$(GTEST_DIR)/googletest/include \
+INC = -I$(GTEST_DIR)/googletest/include \
     -I$(GTEST_DIR)/googlemock/include
 
 # Libraries to link
-LIBS=$(GTEST_DIR)/build/lib/libgtest.a \
-     $(GTEST_DIR)/build/lib/libgtest_main.a \
-     $(GTEST_DIR)/build/lib/libgmock.a \
-     $(GTEST_DIR)/build/lib/libgmock_main.a
+LIBS = $(GTEST_DIR)/build/lib/libgtest.a \
+       $(GTEST_DIR)/build/lib/libgtest_main.a \
+       $(GTEST_DIR)/build/lib/libgmock.a \
+       $(GTEST_DIR)/build/lib/libgmock_main.a
 
 # Targets
-all: $(TEST_EXECUTABLE)
+all: $(TARGET)
 
-$(TEST_EXECUTABLE): $(TEST_OBJS) $(LIBS)
+$(TARGET): $(OBJS) $(LIBS)
 	$(CXX) $(CXXFLAGS) $(INC) $^ -o $@
 
-$(TEST_DIR)/%.o: $(TEST_DIR)/%.cpp
+%.o: %.cpp
 	$(CXX) $(CXXFLAGS) $(INC) -c $< -o $@
 
 $(LIBS):
@@ -41,5 +36,5 @@ $(LIBS):
 	cd $(GTEST_DIR)/build && cmake .. && make
 
 clean:
-	rm -f $(TEST_EXECUTABLE) $(TEST_OBJS)
+	rm -f $(TARGET) $(OBJS)
 	rm -rf $(GTEST_DIR)/build
