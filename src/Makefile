@@ -6,7 +6,7 @@ CXXFLAGS = -g
 
 .PHONY: all clean pack
 
-all: build/src
+all: build/calculator
 
 profile:
 	$(CXX) $(CXXFLAGS) standartDeviation.cpp -o standartDeviation.o
@@ -17,7 +17,7 @@ test:
 build:
 	mkdir -p build
 
-build/src: | build
+build/calculator: | build
 	cd build && cmake .. && make -s
 
 clean:
