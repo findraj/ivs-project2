@@ -8,8 +8,9 @@ CXXFLAGS = -g
 
 all: build/calculator
 
-profile:
-	$(CXX) $(CXXFLAGS) standartDeviation.cpp -o standartDeviation.o
+profile: build
+	@cd build && $(CXX) $(CXXFLAGS) -c ../standartDeviation.cpp
+	@cd build && $(CXX) $(CXXFLAGS) -o stddev standartDeviation.o 
 
 test:
 	cd tests && make -s && ./mathTests.out
