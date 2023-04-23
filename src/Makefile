@@ -6,7 +6,7 @@ CXXFLAGS = -g
 
 .PHONY: all clean pack
 
-all: build/calculator
+all: build/calculator profile
 
 profile: build
 	@cd build && $(CXX) $(CXXFLAGS) -c ../standartDeviation.cpp
@@ -16,9 +16,12 @@ test:
 	cd tests && make -s && ./mathTests.out
 	
 build:
-	mkdir -p build
+	@mkdir -p build
 
 build/calculator: | build
+	@which build-essential > /dev/null || (sudo apt-get update && sudo apt install build-essential)
+	@which cmake > /dev/null || (sudo apt-get update && sudo apt install cmake)
+	@which qtbase5-dev > /dev/null || (sudo apt-get update && sudo apt install qtbase5-dev)
 	cd build && cmake .. && make -s
 
 clean:
@@ -27,7 +30,8 @@ clean:
 
 pack: clean $(TARGET) 
 
-doc: 
+doc:
+	@which doxygen > /dev/null || (sudo apt-get update && sudo apt install doxygen)
 	doxygen Doxyfile
 
 $(TARGET):
