@@ -12,7 +12,7 @@
  * @brief File that handles GUI for the calculator
  */
 #include "calculator.h"
-#include "./ui_calculator.h"
+#include "ui_calculator.h"
 #include "mathLib.h"
 
 /**
@@ -206,14 +206,15 @@ void calculator::on_ButtonEq_released()
         }
         else if (operation == "/")
         {
-            if (secondValue == 0.0)
+            try
+            {
+                result = Division(firstValue, secondValue);
+            }
+            catch (const std::overflow_error& e)
             {
                 error = true;
             }
-            else
-            {
-            result = Division(firstValue, secondValue);
-            }
+
         }
         else if (operation == "^")
         {
@@ -221,7 +222,13 @@ void calculator::on_ButtonEq_released()
         }
         else if (operation == "√")
         {
-            result = Nthroot(firstValue, secondValue);
+            try{
+                result = Nthroot(firstValue, secondValue);
+            }
+            catch (const std::overflow_error& e)
+            {
+                error = true;
+            }
         }
         else if (operation == "")
         {
@@ -250,7 +257,11 @@ void calculator::on_ButtonCE_released()
     QString screenString;
     screenString = ui->label->text();
 
-    if (digitMode)
+    if (screenString == "")
+    {
+        ;
+    }
+    else if (digitMode)
     {
         screenString.chop(1);
         ui->label->setText(screenString);
@@ -270,6 +281,7 @@ void calculator::on_ButtonCE_released()
 
 void calculator::on_ButtonC_released()
 {
+    digitMode = false;
     ui->label->setText("");
 }
 /**
