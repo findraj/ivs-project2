@@ -1,4 +1,7 @@
 TARGET = xfindr01_xjoukl00_xkozan01_xolesa00
+STDDEV = stddev
+CALCULATOR = calculator
+DIR = $(notdir $(abspath $(CURDIR)/..))
 
 # Compiler settings
 CXX = g++
@@ -9,7 +12,7 @@ CXXFLAGS = -g
 all: build/calculator profile
 
 profile: build
-	@cd build && $(CXX) $(CXXFLAGS) ../standardDeviation.cpp -o stddev
+	@cd build && $(CXX) $(CXXFLAGS) ../standardDeviation.cpp -o $(STDDEV)
 
 test:
 	cd tests && make -s && ./mathTests.out
@@ -34,12 +37,13 @@ doc:
 	doxygen Doxyfile
 
 $(TARGET):
+	echo $(DIR)
 	@cd .. && cd .. && mkdir -p $(TARGET) > /dev/null
 	@cd .. && cd ../$(TARGET) && mkdir -p doc install repo > /dev/null
-	@cd .. && cd .. && cp -r ivs-project2 ./$(TARGET)/repo > /dev/null
-
+	@cd .. && cd .. && cp -r $(DIR)/* ./$(TARGET)/repo > /dev/null
+	@cd .. && cd .. && cp -r $(DIR)/src/install/*.deb ./$(TARGET)/install > /dev/null
 	@cd .. && cd .. && zip -r $(TARGET).zip $(TARGET) > /dev/null
 	@cd .. && cd .. && rm -rf $(TARGET) > /dev/null
 
 run: all
-	./build/src
+	./build/$(CALCULATOR)
