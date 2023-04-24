@@ -98,4 +98,4 @@ int main()
 
     return 0;
 }
-/************** END OF standartDeviation.cpp **************/
+/************** END OF standardDeviation.cpp **************/
