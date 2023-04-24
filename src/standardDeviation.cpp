@@ -1,6 +1,6 @@
 /******************************************************
  * Project name: VUT FIT IVS Project 2 - Calculator
- * File: standartDeviation.cpp
+ * File: standardDeviation.cpp
  * Date: 14.4.2023
  * Authors: Marek Joukl (xjoukl00)
  *          Marko Olesak (xolesa00)
@@ -8,7 +8,7 @@
  *          Jan Findra (xfindr01)
  ******************************************************/
 /**
- * @file standartDeviation.cpp
+ * @file standardDeviation.cpp
  *
  * @brief File that calculates standart deviation
  */
