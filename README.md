@@ -4,14 +4,15 @@ This is a simple calculator app. It allows users to perform basic arithmetic cal
 ## Platform
 *Ubuntu 64-bit*
 
-*Windows 10/11 64-bit*
 ## Prerequisites 
 - [Cmake](https://cmake.org/ "Cmake")
 
-- sudo apt-get install qtbase5-dev (for Ubuntu)
+- sudo apt-get install qtbase5-dev
 
-- Doxygen
-## Installation
+## Installation & Usage
+To get started with our Calculator, see the [User Manual](./user_documentation.pdf), which includes an installation guide and instructions for use
+
+## Makefile commands
 `make all`- compiles project with program for profilling
 
 `make pack`- create a zip package 
@@ -26,8 +27,7 @@ This is a simple calculator app. It allows users to perform basic arithmetic cal
 
 `make profile`- compile the program for calculation of 
 standard deviation 
-## Usage
-TBD
+
 
 ## Authors
 - **Ján Findra** (xfindr01)
