@@ -60,12 +60,14 @@ QString operation = "";
 /**
  * @brief closes window of calculator
  */
-void calculator::digit_pressed(){
+void calculator::digit_pressed()
+{
     QPushButton *button = (QPushButton*)sender();
     QString screenString;
 
     screenString = ui->label->text();
-    if (!digitMode){
+    if (!digitMode)
+    {
         screenString = "";
     }
     screenString = screenString + button->text();
@@ -82,7 +84,8 @@ void calculator::on_ButtonDec_released()
     QString screenString;
     screenString = ui->label->text();
 
-    if (!screenString.contains(".")){
+    if (!screenString.contains("."))
+    {
         screenString = screenString + ".";
         ui->label->setText(screenString);
     }
@@ -102,7 +105,8 @@ void calculator::on_ButtonNeg_released()
     screenNumValue = Negation(screenNumValue);
     screenString = QString::number(screenNumValue,'g',15);
 
-    if (screenNumValue != 0){
+    if (screenNumValue != 0)
+    {
         ui->label->setText(screenString);
     }
 }
@@ -115,8 +119,10 @@ void calculator::operation_pressed()
     QString screenString;
     QPushButton *button = (QPushButton*)sender();
 
-    if (digitMode){
-        if (operation != ""){
+    if (digitMode)
+    {
+        if (operation != "")
+        {
             on_ButtonEq_released();
         }
 
@@ -124,38 +130,46 @@ void calculator::operation_pressed()
         digitMode = false;
         firstValue = screenString.toDouble();
 
-        if (button->text() == "+"){
+        if (button->text() == "+")
+        {
             operation = "+";
             screenString = "+";
         }
-        else if (button->text() == "-"){
+        else if (button->text() == "-")
+        {
             operation = "-";
             screenString = "-";
         }
-        else if (button->text() == "*"){
+        else if (button->text() == "*")
+        {
             operation = "*";
             screenString = "*";
         }
-        else if (button->text() == "/"){
+        else if (button->text() == "/")
+        {
             operation = "/";
             screenString = "/";
         }
-        else if (button->text() == "^"){
+        else if (button->text() == "^")
+        {
             operation = "^";
             screenString = "^";
         }
-        else if (button->text() == "√"){
+        else if (button->text() == "√")
+        {
             operation = "√";
             screenString = "√";
         }
-        else{
+        else
+        {
             ;
         }
 
         ui->label->setText(screenString);
     }
     else{
-        if (button->text() == "-"){
+        if (button->text() == "-")
+        {
             digitMode = true;
             ui->label->setText("-");
         }
@@ -167,7 +181,8 @@ void calculator::operation_pressed()
  */
 void calculator::on_ButtonEq_released()
 {
-    if (digitMode){
+    if (digitMode)
+    {
         QString screenString;
         double result;
 
@@ -175,36 +190,55 @@ void calculator::on_ButtonEq_released()
         secondValue = screenString.toDouble();
 
         digitMode = true;
+        bool error = false;
 
-        if (operation == "+"){
+        if (operation == "+")
+        {
             result = Addition(firstValue, secondValue);
         }
-        else if (operation == "-"){
+        else if (operation == "-")
+        {
             result = Subtraction(firstValue, secondValue);
         }
-        else if (operation == "*"){
+        else if (operation == "*")
+        {
             result = firstValue * secondValue;
         }
-        else if (operation == "/"){
+        else if (operation == "/")
+        {
+            if (secondValue == 0.0)
+            {
+                error = true;
+            }
+            else
+            {
             result = Division(firstValue, secondValue);
+            }
         }
-        else if (operation == "^"){
+        else if (operation == "^")
+        {
             result = Power(firstValue, secondValue);
         }
-        else if (operation == "√"){
+        else if (operation == "√")
+        {
             result = Nthroot(firstValue, secondValue);
         }
-        else if (operation == ""){
+        else if (operation == "")
+        {
             result = secondValue;
         }
-        else{
+        else
+        {
             result = 42;
         }
 
-        operation = "";
-        screenString = QString::number(result,'g',15);
-        firstValue = screenString.toDouble();
-        ui->label->setText(screenString);
+        if (!error)
+        {
+            operation = "";
+            screenString = QString::number(result,'g',15);
+            firstValue = screenString.toDouble();
+            ui->label->setText(screenString);
+        }
     }
 }
 /**
@@ -216,11 +250,13 @@ void calculator::on_ButtonCE_released()
     QString screenString;
     screenString = ui->label->text();
 
-    if (digitMode){
+    if (digitMode)
+    {
         screenString.chop(1);
         ui->label->setText(screenString);
     }
-    else{
+    else
+    {
         QString lastValue = QString::number(firstValue,'g',15);
         ui->label->setText(lastValue);
         digitMode = true;
@@ -241,7 +277,8 @@ void calculator::on_ButtonC_released()
  */
 void calculator::on_ButtonFact_released()
 {
-    if (digitMode){
+    if (digitMode)
+    {
         QString screenString;
         screenString = ui->label->text();
 
@@ -255,7 +292,8 @@ void calculator::on_ButtonFact_released()
  */
 void calculator::on_ButtonPer_released()
 {
-    if (digitMode){
+    if (digitMode)
+    {
         QString screenString;
         screenString = ui->label->text();
 
