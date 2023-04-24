@@ -9,8 +9,7 @@ CXXFLAGS = -g
 all: build/calculator profile
 
 profile: build
-	@cd build && $(CXX) $(CXXFLAGS) -c ../standartDeviation.cpp
-	@cd build && $(CXX) $(CXXFLAGS) -o stddev standartDeviation.o 
+	@cd build && $(CXX) $(CXXFLAGS) ../standardDeviation.cpp -o stddev
 
 test:
 	cd tests && make -s && ./mathTests.out
@@ -25,7 +24,7 @@ build/calculator: | build
 	cd build && cmake .. && make -s
 
 clean:
-	rm -rf build && rm -f standartDeviation.o
+	rm -rf build
 	cd tests && make -s clean
 
 pack: clean $(TARGET) 

@@ -17,10 +17,11 @@
 #include <cstdio>
 #include "mathLib.h"
 
-// result = sqrt[ Σ(xᵢ - x̄)² / (n - 1) ]
-
-// x̄
-
+/**
+ * @brief Calculate the mean of the numbers in a vector
+ * @param values A vector of double values
+ * @return The mean value of the input vector
+ */
 double Mean(const std::vector<double> &values)
 {
     double sum = 0.0;
@@ -33,7 +34,12 @@ double Mean(const std::vector<double> &values)
     return mean;
 }
 
-// Σ(xᵢ - x̄)²
+/**
+ * @brief Calculates the sum of squares from the provided mean and values.
+ * @param values A vector of double values
+ * @param mean The mean value of the input vector
+ * @return The sum of squares of the vector
+ */
 double SumOfSquares(const std::vector<double> &values, double mean)
 {
     double sum = 0.0;
@@ -46,7 +52,11 @@ double SumOfSquares(const std::vector<double> &values, double mean)
     return sum;
 }
 
-// Σ(xᵢ - x̄)² / (n - 1)
+/**
+ * @brief Calculates the variance of the provided vector.
+ * @param values A vector of double values
+ * @return The variance of the input vector
+ */
 double Variance(const std::vector<double> &values)
 {
     if (values.empty())
@@ -58,7 +68,11 @@ double Variance(const std::vector<double> &values)
     return variance;
 }
 
-// sqrt[ Σ(xᵢ - x̄)² / (n - 1) ]
+/**
+ * @brief Calculates the standard deviation of the provided vector.
+ * @param values A vector of double values
+ * @return The standard deviation of the input vector
+ */
 double StandardDeviation(const std::vector<double> &values)
 {
     double varianceValue = Variance(values);
@@ -66,6 +80,10 @@ double StandardDeviation(const std::vector<double> &values)
     return standardDeviation;
 }
 
+/**
+ * @brief Main function that reads numbers from the input and calculates their standard deviation.
+ * @return 0
+ */
 int main()
 {
     std::vector<double> values;
