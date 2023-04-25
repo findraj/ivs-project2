@@ -5,9 +5,10 @@ This is a simple calculator app. It allows users to perform basic arithmetic cal
 *Ubuntu 64-bit*
 
 ## Prerequisites 
-- [Cmake](https://cmake.org/ "Cmake")
+- [GNU Make](https://www.gnu.org/software/make/) 
 
-- sudo apt-get install qtbase5-dev
+`sudo apt update && sudo apt install make`
+
 
 ## Installation & Usage
 To get started with our Calculator, see the [User Manual](./user_documentation.pdf), which includes an installation guide and instructions for use
