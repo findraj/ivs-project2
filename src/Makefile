@@ -54,8 +54,8 @@ doc: dependencies
 # Prepare and zip folder for submission.
 $(TARGET):
 	@cd .. && cd .. && mkdir -p $(TARGET) > /dev/null
-	@cd .. && cd ../$(TARGET) && mkdir -p doc install repo > /dev/null
-	@cd .. && cd .. && cp -r $(DIR)/* ./$(TARGET)/repo > /dev/null
+	@cd .. && cd ../$(TARGET) && mkdir -p doc install > /dev/null
+	@cd .. && cd .. && cp -a $(DIR) ./$(TARGET) > /dev/null && mv ./$(TARGET)/$(DIR) ./$(TARGET)/repo
 	@$(MAKE) doc
 	@cd .. && cd .. && cp -r $(DIR)/src/doc/* ./$(TARGET)/doc > /dev/null
 	@cd .. && cd .. && cp -r $(DIR)/src/install/*.deb ./$(TARGET)/install > /dev/null
