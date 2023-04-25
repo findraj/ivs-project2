@@ -1,4 +1,4 @@
 xfindr01 100 (GUI,Makefile,installer)
-xolesa00 100 ()
+xolesa00 100 (Mathematical library, tests, standard deviation)
 xjoukl00 100 ()
 xkozan01 100 ()
