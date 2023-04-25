@@ -1,0 +1,4 @@
+xfindr01 100 (GUI,Makefile,installer)
+xolesa00 100 ()
+xjoukl00 100 ()
+xkozan01 100 ()
