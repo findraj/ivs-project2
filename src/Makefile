@@ -23,7 +23,7 @@ dependencies:
 	@which doxygen > /dev/null || (sudo apt install -qq -y doxygen)
 
 # Compile the binary for standart deviation.
-profile: buildFolder
+profile: dependencies buildFolder
 	@cd build && $(CXX) $(CXXFLAGS) ../standardDeviation.cpp -o $(STDDEV)
 
 # Run test for the standart deviation.
@@ -35,7 +35,7 @@ buildFolder:
 	@mkdir -p build
 
 # Compile the calculator binary.
-build: | buildFolder
+build: dependencies buildFolder
 	@cd build && cmake .. && make -s
 
 # Clean the repository to be ready to be submitted.
@@ -48,7 +48,7 @@ clean:
 pack: clean $(TARGET) 
 
 # Generate the program documentation.
-doc:
+doc: dependencies
 	@doxygen Doxyfile
 
 # Prepare and zip folder for submission.
