@@ -1,6 +1,6 @@
 [Desktop Entry]
 Categories=Qt;App;
-Exec=/usr/share/bin/calculator
+Exec=/usr/local/bin/calculator
 GenericName=Simple Calculator
 Icon=/usr/share/pixmaps/calculator.png
 Name=calculator
