@@ -31,6 +31,9 @@ standard deviation
 
 
 ## Authors
+
+Team **Klub priaťelov mesta Stropkov**
+
 - **Ján Findra** (xfindr01)
 - **Marko Olešák** (xolesa00)
 - **Ondrej Kožanyi** (xkozan01)
